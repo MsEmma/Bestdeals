@@ -3,6 +3,30 @@ var fruition = require("../fruition");
 
 describe("fruition", function() {
 
+  it("should return a fruit map from the input JSON", function() {
+    var result = fruition.getFruitMap({
+      "woolingsworth": {"apples": 4,"bananas": 3,"oranges": 12},
+      "chockers": {"bananas": 2,"apples": 5,"oranges": 4 },
+      "pickle pay": {"bananas": 4,"oranges": 7},
+      "shopwrong": {"apples": 2,"bananas": 3},
+      "kwakspar": {"oranges": 9,"apples": 4} });
+    assert.deepEqual(result, { apples:
+   [ { shop: 'woolingsworth', quantity: 4 },
+     { shop: 'chockers', quantity: 5 },
+     { shop: 'shopwrong', quantity: 2 },
+     { shop: 'kwakspar', quantity: 4 } ],
+  bananas:
+   [ { shop: 'woolingsworth', quantity: 3 },
+     { shop: 'chockers', quantity: 2 },
+     { shop: 'pickle pay', quantity: 4 },
+     { shop: 'shopwrong', quantity: 3 } ],
+  oranges:
+   [ { shop: 'woolingsworth', quantity: 12 },
+     { shop: 'chockers', quantity: 4 },
+     { shop: 'pickle pay', quantity: 7 },
+     { shop: 'kwakspar', quantity: 9 } ] });
+  });
+
   it("should find the seller of the cheapest oranges", function() {
     var result = fruition.getCheapOrangesSeller("processedObject");
     assert.deepEqual(result, "Chockers");
