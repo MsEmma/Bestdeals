@@ -71,3 +71,19 @@ exports.getExpensiveDeal = function(dealPriceMap, priceArray) {
   return expensiveDeal;
 
 }
+
+exports.getAveragePrice = function() {
+
+  var priceArray = [3, 3.5, 3.33, 2.9];
+
+  total = 0
+
+  priceArray.forEach(function(array) {
+    total += array;
+  })
+
+  var averagePrice = Number((total / priceArray.length).toFixed(2));
+
+  return averagePrice;
+
+}

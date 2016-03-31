@@ -43,8 +43,8 @@ describe("avo", function() {
   });
 
   it("should find the average price across all the deals", function() {
-    var result = avo.getArray([3, 3.5, 3.33, 2.9]);
-    assert.deepEqual(result, 3.18);
+    var result = avo.getAveragePrice([3, 3.5, 3.33, 2.9]);
+    assert.equal(result, 3.18);
   });
 
 });
