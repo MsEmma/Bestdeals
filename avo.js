@@ -28,8 +28,46 @@ exports.getPriceArray = function(avoArray) {
   return priceArray;
 }
 
-// exports.getPriceMap = function(inputString,priceArray){
+exports.getDealPriceMap = function(inputString, priceArray) {
 
+  inputString = inputString.replace("0.", "0");
 
+  var array = inputString.split(",")
 
-// }
+  var dealPriceMap = {};
+
+  for (i = 0; i < array.length; i++) {
+    dealPriceMap[array[i]] = priceArray[i];
+  }
+
+  return dealPriceMap;
+
+}
+
+exports.getCheapestDeal = function(dealPriceMap, priceArray) {
+
+  priceArray.sort();
+
+  for (var deal in dealPriceMap) {
+    if (dealPriceMap[deal] === priceArray[0]) {
+      var cheapestDeal = deal;
+    }
+  }
+
+  return cheapestDeal;
+
+}
+
+exports.getExpensiveDeal = function(dealPriceMap, priceArray) {
+
+  priceArray.sort();
+
+  for (var deal in dealPriceMap) {
+    if (dealPriceMap[deal] === priceArray[3]) {
+      var expensiveDeal = deal;
+    }
+  }
+
+  return expensiveDeal;
+
+}
