@@ -7,7 +7,7 @@ describe ("avo", function(){
     assert.deepEqual(result, [1,3,2,7,3,10,5,14.50]);
   });
   it ("should take an array as an input and calculate the Price Per Avo for each deal);", function(){
-    var result = avo.getArray([1,3,2,7,3,10,5,14.50]);
+    var result = avo.getPriceArray([1,3,2,7,3,10,5,14.50]);
     assert.deepEqual(result, [3,3.5,3.33,2.9]);
   });
   it ("should find the cheapest deal)", function(){
